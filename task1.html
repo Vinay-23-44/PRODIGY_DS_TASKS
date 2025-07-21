@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modern Interactive Navbar</title>
+  <style>
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Fixed Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: transparent;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    nav.scrolled {
+      background-color: #111;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    /* Section Styles */
+    section {
+      height: 100vh;
+      padding: 100px 40px 40px;
+      color: #fff;
+    }
+
+    #home { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
+    #about { background: linear-gradient(135deg, #8e44ad, #c0392b); }
+    #services { background: linear-gradient(135deg, #27ae60, #2ecc71); }
+    #portfolio { background: linear-gradient(135deg, #34495e, #16a085); }
+    #contact { background: linear-gradient(135deg, #e67e22, #f39c12); }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="logo">MySite</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Sections -->
+  <section id="home">
+    <h1>Welcome to MySite</h1>
+    <p>This is a modern interactive webpage with a fixed navbar that changes on scroll and hover.</p>
+  </section>
+
+  <section id="about">
+    <h1>About</h1>
+    <p>We are passionate about crafting digital experiences that blend design with functionality.</p>
+  </section>
+
+  <section id="services">
+    <h1>Services</h1>
+    <p>We offer web development, UI/UX design, and digital transformation solutions.</p>
+  </section>
+
+  <section id="portfolio">
+    <h1>Portfolio</h1>
+    <p>Check out some of our latest projects and design showcases below.</p>
+  </section>
+
+  <section id="contact">
+    <h1>Contact</h1>
+    <p>Get in touch with us to turn your ideas into reality.</p>
+  </section>
+
+  <!-- JavaScript for scroll detection -->
+  <script>
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
